@@ -51,8 +51,10 @@ def process_comment(source, comment, parent):
 	
 	date_bucket = datetime.datetime.fromtimestamp(comment_datestamp).strftime("%Y-%m-%d:%H")
 	for word in count_words(comment['body']):
-		print "HINCRBY %s:%s %s 1" % (source, date_bucket, word)
-		r.hincrby("%s:%s" % (source, date_bucket), word, 1)
+		# print "HINCRBY %s:%s %s 1" % (source, date_bucket, word)
+		# r.hincrby("%s:%s" % (source, date_bucket), word, 1)
+		print "ZINCRBY %s:%s 1 %s" % (source, date_bucket, word)
+		r.zincrby("%s:%s" % (source, date_bucket), word, 1)
 	
 	if not parent:
 		return
