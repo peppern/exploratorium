@@ -44,4 +44,4 @@ def dotify_thread(thread_id):
 # 1) "t3_i5vwg"
 # 2) "t3_i5ytc"
 # 3) "t3_i5rto"
-dotify_thread("t3_i5vwg")
+dotify_thread("t3_i2fms")
