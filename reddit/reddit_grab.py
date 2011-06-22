@@ -35,7 +35,6 @@ def comment_grab(url):
 	json_comments = json.loads(urllib2.urlopen(url).read())
 	todo = json_comments[1]['data']['children']
 	for comment_subtree in todo:
-		submit = {}
-		submit
+		pass
 	
 subreddit_scanner('gaming')
