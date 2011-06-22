@@ -29,8 +29,13 @@ def subreddit_scanner(subreddit):
 		print c
 		comment_grab(c)
 		
-def comment_grab():
+def comment_grab(url):
 	"""Accepts a url for a reddit comment thread and puts the time-stamped word counts into redis"""
-	pass
+	url = url+".json"
+	json_comments = json.loads(urllib2.urlopen(url).read())
+	todo = json_comments[1]['data']['children']
+	for comment_subtree in todo:
+		submit = {}
+		submit
 	
 subreddit_scanner('gaming')
