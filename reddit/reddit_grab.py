@@ -1,6 +1,6 @@
 import json, urllib2, time, datetime, re, redis
 
-maxpages = 1		# Don't Suck Too Much
+maxpages = 10		# Don't Suck Too Much
 sleep_delay = 1000	# Conference Bandwidth
 r = redis.Redis(host='localhost', port=6379, db=0)
 
@@ -91,7 +91,7 @@ def comment_grab(source, url):
 	comments = json_comments[1]['data']['children']
 	for comment in comments:
 		comment = comment['data']
-		parse_comment(source, comment, None)
+		parse_comment(source, comment, parent)
 	
 
-subreddit_scanner('gaming')
+subreddit_scanner('programming')
